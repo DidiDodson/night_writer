@@ -2,8 +2,13 @@
 
 class Output
 
-  attr_accessor
+  attr_accessor :file_name
 
-  def initialize
-  end  
+  def initialize(file_name)
+    @file_name = file_name
+  end
+
+  def add_file
+    File.new(file_name, "w+")
+  end
 end
