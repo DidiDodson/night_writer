@@ -13,12 +13,12 @@ describe Messages do
   it 'prints first message' do
     message = Messages.new('braille.txt')
 
-    expect(message.first_message).to eq("Created 'braille.txt' containing 6 characters")
+    expect(message.first_message).to eq("Created 'braille.txt' containing 5 characters")
   end
 
   it 'reads number of characters' do
     message = Messages.new('braille.txt')
 
-    expect(message.read_char_num).to eq("6")
+    expect(message.read_char_num).to eq("5")
   end
 end
