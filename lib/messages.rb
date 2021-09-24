@@ -10,7 +10,7 @@ class Messages
   end
 
   def first_message
-    "Created #{file_name} containing #{[num_characters]} characters"
+    "Created '#{file_name}' containing #{read_char_num} characters"
   end
 
   def read_char_num
@@ -18,6 +18,6 @@ class Messages
     line_count = lines.size
     text = lines.join
     total_characters = text.length
-    puts "#{total_characters} characters"
+    "#{total_characters}"
   end
 end
