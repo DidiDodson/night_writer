@@ -2,11 +2,10 @@
 
 class Messages
 
-  attr_accessor :file_name, :num_characters
+  attr_accessor :file_name
 
   def initialize(file_name)
     @file_name = file_name
-    @num_characters = num_characters
   end
 
   def first_message
@@ -16,7 +15,7 @@ class Messages
   def read_char_num
     lines = File.readlines("messages.txt")
     line_count = lines.size
-    text = lines.join
+    text = lines.join.chomp
     total_characters = text.length
     "#{total_characters}"
   end
