@@ -1,6 +1,5 @@
 require 'rspec'
 require 'optparse'
-# require './lib/night_writer'
 require './lib/messages'
 
 describe Messages do
