@@ -18,4 +18,8 @@ class Messages
     total_characters = text.length
     "#{total_characters}"
   end
+
+  def second_message
+    "Created '#{file_name}' containing #{read_char_num} characters."
+  end
 end
