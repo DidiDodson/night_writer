@@ -22,6 +22,7 @@ class Dictionary
   end
 
   def search_by_letter(input_item)
+    input_item.downcase!
     @dictionary[input_item.to_sym]
   end
 
