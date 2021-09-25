@@ -9,6 +9,6 @@ class Output
   end
 
   def add_file
-    File.new(file_name, "w+")
+    File.open(file_name, "w+")
   end
 end
