@@ -9,7 +9,7 @@ s_message = ARGV[1]
 
 message1 = Messages.new(s_message)
 output1 = Output.new(s_message)
-dictionary1 = Dictionary.new
+dictionary1 = Dictionary.new(s_message)
 
 
 puts message1.first_message
