@@ -11,7 +11,7 @@ describe Dictionary do
     expect(dictionary).to be_a(Dictionary)
   end
 
-  it 'has attrinbutes' do
+  it 'has attributes' do
     dictionary = Dictionary.new
 
     expect(dictionary.dict[:h]).to eq("0.\n00\n..")
@@ -23,5 +23,13 @@ describe Dictionary do
      expected = "0.\n.0\n.."
 
      expect(dictionary.search_by_letter("e")).to eq(expected)
+  end
+
+  it 'reads english, converts' do
+    dictionary = Dictionary.new
+
+    dictionary.read_conv
+
+    expect("braille.txt".length).to eq(11)
   end
 end
