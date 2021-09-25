@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 
 class Dictionary
-  attr_accessor :dict
+  attr_accessor :dict, :file_name
 
-  def initialize
+  def initialize(file_name)
+    @file_name = file_name
     @letters = {
              a: "0.\n..\n..",
              b: "0.\n0.\n..",
@@ -41,6 +42,7 @@ class Dictionary
 
   def read_conv_write
     arr1 = []
+
     lines = IO.read("messages.txt").chomp
       lines.each_char do |line|
         letter_hash = search_by_letter(line)
@@ -57,7 +59,20 @@ class Dictionary
       line3 = arr1.map do |arr|
         arr[2]
       end
-      
-    File.open("braille.txt", mode: "a"){ |file| file.puts "#{line1.join(" ")}\n#{line2.join(" ")}\n#{line3.join(" ")}"}
+
+      cond1 = line1[0..77]
+      cond2 = line2[0..77]
+      cond3 = line3[0..77]
+      cond4 = line1[78..155]
+      cond5 = line2[78..155]
+      cond6 = line3[78..155]
+      cond7 = line1[156..233]
+      cond8 = line2[156..233]
+      cond9 = line3[156..233]
+      cond10 = line1[234..312]
+      cond11 = line2[234..312]
+      cond12 = line3[234..312]
+
+      File.open(@file_name, mode: "a"){|file| file.puts "#{cond1.join(" ")}\n#{cond2.join(" ")}\n#{cond3.join(" ")}\n#{cond4.join(" ")}\n#{cond5.join(" ")}\n#{cond6.join(" ")}\n#{cond7.join(" ")}\n#{cond8.join(" ")}\n#{cond9.join(" ")}\n#{cond10.join(" ")}\n#{cond11.join(" ")}\n#{cond12.join(" ")}\n"}
   end
 end
