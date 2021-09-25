@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 
 class Dictionary
-  attr_accessor :dict, :file_name
+  attr_accessor :dictionary, :file_name, :arr1
 
   def initialize(file_name)
+    @arr1 = []
     @file_name = file_name
     @dictionary = {
              a: "0.\n..\n..", b: "0.\n0.\n..", c: "00\n..\n..", d: "00\n.0\n..",
@@ -14,8 +15,7 @@ class Dictionary
              u: "0.\n..\n00", v: "0.\n0.\n00", w: ".0\n00\n.0", x: "00\n..\n00",
              y: "00\n.0\n00", z: "0.\n.0\n00", " ": "..\n..\n..", ".": "..\n00\n.0",
              ",": "..\n0.\n..", ";": "..\n0.\n0.", ":": "..\n00\n..", "!": "..\n00\n0.",
-             "?": "..\n0.\n00", ' " ': "..\n.0\n00", ' " ': "..\n.0\n00",
-             " ' ": "..\n..\n0.", "1": "0.\n..\n..", "2": "0.\n0.\n..", "3": "..\n00\n00",
+             "?": "..\n0.\n00", ' " ': "..\n.0\n00", "1": "0.\n..\n..", "2": "0.\n0.\n..", "3": "..\n00\n00",
              "4": "00\n.0\n..", "5": "0.\n.0\n..", "6": "00\n0.\n..", "7": "00\n00\n..",
              "8": "0.\n00\n..", "9": ".0\n0.\n..", "0": ".0\n00\n.."
            }
@@ -27,26 +27,25 @@ class Dictionary
   end
 
   def read_conv_write
-    arr1 = []
-
     lines = IO.read("messages.txt").chomp
       lines.each_char do |line|
         letter_hash = search_by_letter(line)
-        arr1 << letter_hash.split("\n")
+        @arr1 << letter_hash.split("\n")
       end
 
-      line1 = arr1.map do |arr|
+      line1 = @arr1.map do |arr|
         arr[0]
       end
 
-      line2 = arr1.map do |arr|
+      line2 = @arr1.map do |arr|
         arr[1]
       end
-      line3 = arr1.map do |arr|
+
+      line3 = @arr1.map do |arr|
         arr[2]
       end
 
-      if arr1.count <= 77
+      if @arr1.count <= 77
         cond1 = line1[0..77]
         cond2 = line2[0..77]
         cond3 = line3[0..77]
