@@ -1,3 +1,4 @@
+
 require 'rspec'
 require 'optparse'
 require './lib/messages'
@@ -25,13 +26,11 @@ describe Dictionary do
      expect(dictionary.search_by_letter("e")).to eq(expected)
   end
 
-  xit 'reads English' do
-  
+  it 'reads to Braille' do
     dictionary = Dictionary.new('braille.txt')
 
     dictionary.read_conv_write
-    convert.translate
 
-    expect('braille.txt'.length).to eq(12)
+    expect(dictionary.arr1).to eq([["0.", "..", ".."], ["..", "..", ".."], ["0.", "0.", ".."], ["..", "..", ".."], ["00", "..", ".."]])
   end
 end
