@@ -13,9 +13,8 @@ class Messages
   end
 
   def read_char_num
-    lines = File.readlines("messages.txt")
-    line_count = lines.size
-    text = lines.join.chomp
+    lines = IO.read("messages.txt")
+    text = lines.chomp!
     total_characters = text.length
     "#{total_characters}"
   end
