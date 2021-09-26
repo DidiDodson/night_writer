@@ -19,7 +19,14 @@ class Messages
     "#{total_characters}"
   end
 
+  def read_braille_num
+    lines = File.read("braille0.txt")
+    line = lines.split("\n")
+    item = line[0].chars.each_slice(2).map(&:join)
+    item.count
+  end
+
   def second_message
-    "Created '#{file_name}' containing #{read_char_num} characters."
+    "Created '#{file_name}' containing #{read_braille_num} characters."
   end
 end
