@@ -29,14 +29,6 @@ describe ReaderDictionary do
     reader_dictionary.read
 
     expect(reader_dictionary.read).to be_a(Array)
-  end
-
-  xit 'translates' do
-    reader_dictionary = ReaderDictionary.new('braille0.txt')
-
-    reader_dictionary.read
-    reader_dictionary.translate
-
-    expect(reader_dictionary.translate).to eq(true)
+    expect("braille0.txt".count).to eq(11)
   end
 end
