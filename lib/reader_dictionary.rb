@@ -26,16 +26,65 @@ class ReaderDictionary
       item.chars.each_slice(2).map(&:join)
     end
 
-    a = lines[0]
-    b = lines[1]
-    c = lines[2]
-    d = a.zip(b, c)
+    l11 = lines[0]
+    l12 = lines[1]
+    l13 = lines[2]
+    l21 = lines[3]
+    l22 = lines[4]
+    l23 = lines[5]
+    l31 = lines[6]
+    l32 = lines[7]
+    l33 = lines[8]
 
-    f = d.map do |let|
-      search_by_braille(let)
+    if lines.include?(l21) == false
+      zip1 = l11.zip(l12, l13)
+
+      search1 = zip1.map do |let|
+        search_by_braille(let)
+      end
+
+      new1 = search1.join(" ")
+
+      File.open(@file_name, mode: "a"){|file| file.puts "#{new1}"}
+
+    elsif (lines.include?(l21) == true) && (lines.include?(l31) == false)
+
+      zip1 = l11.zip(l12, l13)
+      zip2 = l21.zip(l22, l23)
+
+      search1 = zip1.map do |let|
+        search_by_braille(let)
+      end
+      search2 = zip2.map do |let|
+        search_by_braille(let)
+      end
+
+      new1 = search1.join(" ")
+      new2 = search2.join(" ")
+
+      File.open(@file_name, mode: "a"){|file| file.puts "#{new1}\n#{new2}"}
+
+    elsif lines.include?(l31) == true
+
+      zip1 = l11.zip(l12, l13)
+      zip2 = l21.zip(l22, l23)
+      zip3 = l31.zip(l32, l33)
+
+      search1 = zip1.map do |let|
+        search_by_braille(let)
+      end
+      search2 = zip2.map do |let|
+        search_by_braille(let)
+      end
+      search3 = zip3.map do |let|
+        search_by_braille(let)
+      end
+
+      new1 = search1.join(" ")
+      new2 = search2.join(" ")
+      new3 = search3.join(" ")
+
+      File.open(@file_name, mode: "a"){|file| file.puts "#{new1}\n#{new2}\n#{new3}"}
     end
-
-    new = f.join(" ")
-    File.open(@file_name, mode: "a"){|file| file.puts "#{new}"}
   end
 end
