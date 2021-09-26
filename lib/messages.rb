@@ -17,7 +17,6 @@ class Messages
     text = lines.chomp!
     total_characters = text.length
     "#{total_characters}"
-
   end
 
   def read_braille_num
