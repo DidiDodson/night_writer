@@ -21,8 +21,10 @@ class Messages
   end
 
   def read_braille_num
-    lines = IO.read("braille.txt")
-    (lines.split(" ").count) / 3
+    lines = File.read("braille0.txt")
+    line = lines.split("\n")
+    item = line[0].chars.each_slice(2).map(&:join)
+    item.count
   end
 
   def second_message
