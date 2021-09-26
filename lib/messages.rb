@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-
 class Messages
 
   attr_accessor :file_name
@@ -20,16 +19,20 @@ class Messages
   end
 
   def read_braille_num
-    lines = File.read("braille0.txt")
+    lines = File.read(@f_message)
     line = lines.split("\n")
-    item1 = line[0].chars.each_slice(2).map(&:join)
-    item2 = line[3].chars.each_slice(2).map(&:join)
-    item3 = line[6].chars.each_slice(2).map(&:join)
-    if item2 && item3 == nil
+
+    if line.count == 3
+      item1 = line[0].chars.each_slice(2).map(&:join)
       item1.count
-    elsif item3 == nil
+    elsif line.count == 6
+      item1 = line[0].chars.each_slice(2).map(&:join)
+      item2 = line[3].chars.each_slice(2).map(&:join)
       item2.count + item2.count
-    else
+    elsif line.count == 9
+      item1 = line[0].chars.each_slice(2).map(&:join)
+      item2 = line[3].chars.each_slice(2).map(&:join)
+      item3 = line[6].chars.each_slice(2).map(&:join)
       item2.count + item2.count + item3.count
     end
   end
