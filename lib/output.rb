@@ -11,6 +11,6 @@ class Output
   end
 
   def add_file_2
-    File.open(file_name2, "a+")
+    File.open(file_name2, "w+")
   end
 end
