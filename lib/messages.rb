@@ -1,18 +1,22 @@
-#!/usr/bin/env ruby
 class Messages
 
-  attr_accessor :file_name, :argv, :braille_tester, :english_tester
+  attr_accessor :file_name
 
   def initialize(file_name)
     @file_name = file_name
-    @lines = File.read(ARGV[0])
   end
 
   def read_char_num
     # text = File.read('./lib/messages_test.txt')
-    text = @lines.chomp!
-    total_characters = text.length
-    "#{total_characters}"
+    if @lines == nil
+      total_characters = 0
+      "#{total_characters}"
+    else
+      @lines = File.read(ARGV[0])
+      text = @lines.chomp!
+      total_characters = text.length
+      "#{total_characters}"
+    end
   end
 
   def first_message
@@ -22,11 +26,11 @@ class Messages
   def read_braille_num
     # test_line = File.read('./lib/braille_test.txt')
     # line = test_line.split("\n")
+    @lines = File.read(ARGV[0])
     line = @lines.split("\n")
     compress = line.map do |letter|
       letter.delete(" ")
     end
-
     if compress.count == 3
       item1 = compress[0].chars.each_slice(2).map(&:join)
       item1.count
@@ -34,7 +38,6 @@ class Messages
       item1 = compress[0].chars.each_slice(2).map(&:join)
       item2 = compress[3].chars.each_slice(2).map(&:join)
       item1.count + item2.count
-
     elsif compress.count == 9
       item1 = compress[0].chars.each_slice(2).map(&:join)
       item2 = compress[3].chars.each_slice(2).map(&:join)
