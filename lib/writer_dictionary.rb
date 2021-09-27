@@ -1,6 +1,5 @@
-#!/usr/bin/env ruby
 class WriterDictionary
-  attr_accessor :dictionary, :file_name
+  attr_reader :dictionary, :file_name
 
   def initialize(file_name)
     @file_name = file_name
