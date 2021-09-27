@@ -16,7 +16,7 @@ puts message1.first_message
 output1.add_file
 translate1.search_by_letter(@s_message)
 translate1.read
-translate1.translate
+translate1.write
 
 
 # ./night_writer.rb messages.txt braille.txt
