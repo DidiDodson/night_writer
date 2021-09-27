@@ -1,27 +1,28 @@
 #!/usr/bin/env ruby
 class Messages
 
-  attr_accessor :file_name
+  attr_accessor :file_name, :argv, :braille_tester, :english_tester
 
   def initialize(file_name)
     @file_name = file_name
+    @lines = File.read(ARGV[0])
+  end
+
+  def read_char_num
+    # text = File.read('./lib/messages_test.txt')
+    text = @lines.chomp!
+    total_characters = text.length
+    "#{total_characters}"
   end
 
   def first_message
     "Created '#{file_name}' containing #{read_char_num} characters"
   end
 
-  def read_char_num
-    lines = IO.read(ARGV[0])
-    text = lines.chomp!
-    total_characters = text.length
-    "#{total_characters}"
-  end
-
   def read_braille_num
-    lines = File.read(ARGV[0])
-    line = lines.split("\n")
-
+    # test_line = File.read('./lib/braille_test.txt')
+    # line = test_line.split("\n")
+    line = @lines.split("\n")
     compress = line.map do |letter|
       letter.delete(" ")
     end
