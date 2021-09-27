@@ -8,11 +8,11 @@ class Messages
 
   def read_char_num
     # text = File.read('./lib/messages_test.txt')
+    @lines = File.read(ARGV[0])
     if @lines == nil
       total_characters = 0
       "#{total_characters}"
     else
-      @lines = File.read(ARGV[0])
       text = @lines.chomp!
       total_characters = text.length
       "#{total_characters}"
