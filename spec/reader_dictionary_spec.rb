@@ -1,5 +1,5 @@
 require 'rspec'
-require 'optparse'
+# require 'optparse'
 require './lib/messages'
 require './lib/output'
 require './lib/reader_dictionary'
