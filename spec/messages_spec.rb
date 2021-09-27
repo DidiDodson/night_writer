@@ -1,5 +1,4 @@
 require 'rspec'
-require 'optparse'
 require './lib/messages'
 require './braille_test.rb'
 
