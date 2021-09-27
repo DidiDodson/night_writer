@@ -1,5 +1,5 @@
 class Translate
-  attr_accessor :dictionary, :file_name, :arr1
+  attr_reader :dictionary, :file_name, :arr1
 
   def initialize(file_name)
     @file_name = file_name
@@ -12,6 +12,7 @@ class Translate
   end
 
   def read
+    # lines = File.read('./lib/messages_test.txt').chomp
     lines = IO.read(ARGV[0]).chomp
     lines.each_char do |line|
       letter_hash = search_by_letter(line)
@@ -40,7 +41,6 @@ class Translate
       File.open(@file_name, mode: "a"){|file| file.puts "#{cond1.join(" ").delete(" ")}\n#{cond2.join(" ").delete(" ")}\n#{cond3.join(" ").delete(" ")}\n"}
 
     elsif (@arr1.count >= 40) && (@arr1.count < 80)
-
       cond1 = @line1[0..39]
       cond2 = @line2[0..39]
       cond3 = @line3[0..39]

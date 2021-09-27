@@ -1,6 +1,5 @@
-#!/usr/bin/env ruby
 class ReaderDictionary
-  attr_accessor :r_dictionary
+  attr_reader :r_dictionary
 
   def initialize(file_name)
     @r_dictionary = {

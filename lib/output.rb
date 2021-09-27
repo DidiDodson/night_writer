@@ -1,14 +1,16 @@
-#!/usr/bin/env ruby
-
 class Output
+  attr_reader :file_name1, :file_name2
 
-  attr_accessor :file_name
-
-  def initialize(file_name)
-    @file_name = file_name
+  def initialize(file_name1, file_name2)
+    @file_name1 = file_name1
+    @file_name2 = file_name2
   end
 
-  def add_file
-    File.open(file_name, "w+")
+  def add_file_1
+    File.open(file_name1, "a+")
+  end
+
+  def add_file_2
+    File.open(file_name2, "w+")
   end
 end
