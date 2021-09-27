@@ -1,5 +1,4 @@
 require 'rspec'
-require 'optparse'
 require './lib/messages'
 require './lib/output'
 require './lib/reader_dictionary'
@@ -24,19 +23,20 @@ describe Translate do
      expect(translate2.search_by_braille(["0.","..",".."])).to eq("a")
   end
 
-  xit 'reads Braille' do
+  it 'reads Braille' do
     translate2 = Translate.new('messages.txt')
 
     translate2.read
 
-    expect('messages.txt'.length).to eq(5)
+    expect('messages.txt'.length).to eq(12)
   end
 
-  xit 'translates to English' do
+  it 'translates to English' do
     translate2 = Translate.new('messages.txt')
 
+    translate2.read
     translate2.write
 
-    expect('braille.txt'.length).to eq(5)
+    expect('braille.txt'.length).to eq(11)
   end
 end
