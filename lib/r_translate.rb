@@ -1,10 +1,8 @@
 class Translate
-  attr_accessor :r_dictionary, :file_name, :new, :lines
+  attr_reader :r_dictionary, :file_name
 
   def initialize(file_name)
     @file_name = file_name
-    @new = []
-    @lines = File.read(ARGV[0])
     @r_dictionary = ReaderDictionary.new(ARGV[1])
   end
 
@@ -13,7 +11,9 @@ class Translate
   end
 
   def read
-    line_array = @lines.split("\n")
+    # lines = File.read('./lib/braille_test.txt')
+    lines = File.read(ARGV[0])
+    line_array = lines.split("\n")
     compress = line_array.map do |line|
       line.delete(" ")
     end
@@ -25,7 +25,7 @@ class Translate
     @line2 = line.map do |item|
       item.chars.each_slice(2).map(&:join)
     end
-    
+
     def write
       @l11 = @line2[0]
       @l12 = @line2[1]
