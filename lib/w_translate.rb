@@ -31,52 +31,53 @@ class Translate
     end
   end
 
-  def translate
-    if @arr1.count <= 80
-      cond1 = @line1[0..80]
-      cond2 = @line2[0..80]
-      cond3 = @line3[0..80]
+  def write
+    if @arr1.count < 40
+      cond1 = @line1[0..39]
+      cond2 = @line2[0..39]
+      cond3 = @line3[0..39]
 
-      File.open(@file_name, mode: "a"){|file| file.puts "#{cond1.join(" ")}\n#{cond2.join(" ")}\n#{cond3.join(" ")}\n"}
+      File.open(@file_name, mode: "a"){|file| file.puts "#{cond1.join(" ").delete(" ")}\n#{cond2.join(" ").delete(" ")}\n#{cond3.join(" ").delete(" ")}\n"}
 
-    elsif (arr1.count >= 81) && (arr1.count < 160)
-      cond1 = line1[0..80]
-      cond2 = line2[0..80]
-      cond3 = line3[0..80]
-      cond4 = line1[81..159]
-      cond5 = line2[81..159]
-      cond6 = line3[81..159]
+    elsif (@arr1.count >= 40) && (@arr1.count < 80)
 
-      File.open(@file_name, mode: "a"){|file| file.puts "#{cond1.join(" ")}\n#{cond2.join(" ")}\n#{cond3.join(" ")}\n#{cond4.join(" ")}\n#{cond5.join(" ")}\n#{cond6.join(" ")}\n"}
+      cond1 = @line1[0..39]
+      cond2 = @line2[0..39]
+      cond3 = @line3[0..39]
+      cond4 = @line1[40..79]
+      cond5 = @line2[40..79]
+      cond6 = @line3[40..79]
 
-    elsif (arr1.count >= 160) && (arr1.count < 240)
-      cond1 = line1[0..80]
-      cond2 = line2[0..80]
-      cond3 = line3[0..80]
-      cond4 = line1[81..159]
-      cond5 = line2[81..159]
-      cond6 = line3[81..159]
-      cond7 = line1[160..239]
-      cond8 = line2[156..239]
-      cond9 = line3[156..239]
+      File.open(@file_name, mode: "a"){|file| file.puts "#{cond1.join(" ").delete(" ")}\n#{cond2.join(" ").delete(" ")}\n#{cond3.join(" ").delete(" ")}\n#{cond4.join(" ").delete(" ")}\n#{cond5.join(" ").delete(" ")}\n#{cond6.join(" ").delete(" ")}\n"}
 
-      File.open(@file_name, mode: "a"){|file| file.puts "#{cond1.join(" ")}\n#{cond2.join(" ")}\n#{cond3.join(" ")}\n#{cond4.join(" ")}\n#{cond5.join(" ")}\n#{cond6.join(" ")}\n#{cond7.join(" ")}\n#{cond8.join(" ")}\n#{cond9.join(" ")}\n"}
+    elsif (@arr1.count >= 80) && (@arr1.count < 120)
+      cond1 = @line1[0..39]
+      cond2 = @line2[0..39]
+      cond3 = @line3[0..39]
+      cond4 = @line1[40..79]
+      cond5 = @line2[40..79]
+      cond6 = @line3[40..79]
+      cond7 = @line1[80..119]
+      cond8 = @line2[80..119]
+      cond9 = @line3[80..119]
 
-    elsif (arr1.count >= 240) && (arr1.count <= 320)
-      cond1 = line1[0..80]
-      cond2 = line2[0..80]
-      cond3 = line3[0..80]
-      cond4 = line1[81..159]
-      cond5 = line2[81..159]
-      cond6 = line3[81..159]
-      cond7 = line1[160..239]
-      cond8 = line2[156..239]
-      cond9 = line3[156..239]
-      cond10 = line1[240..320]
-      cond11 = line2[240..320]
-      cond12 = line3[240..320]
+      File.open(@file_name, mode: "a"){|file| file.puts "#{cond1.join(" ").delete(" ")}\n#{cond2.join(" ").delete(" ")}\n#{cond3.join(" ").delete(" ")}\n#{cond4.join(" ").delete(" ")}\n#{cond5.join(" ").delete(" ")}\n#{cond6.join(" ").delete(" ")}\n#{cond7.join(" ").delete(" ")}\n#{cond8.join(" ").delete(" ")}\n#{cond9.join(" ").delete(" ")}\n"}
 
-      File.open(@file_name, mode: "a"){|file| file.puts "#{cond1.join(" ")}\n#{cond2.join(" ")}\n#{cond3.join(" ")}\n#{cond4.join(" ")}\n#{cond5.join(" ")}\n#{cond6.join(" ")}\n#{cond7.join(" ")}\n#{cond8.join(" ")}\n#{cond9.join(" ")}\n#{cond10.join(" ")}\n#{cond11.join(" ")}\n#{cond12.join(" ")}\n"}
+    elsif (@arr1.count >= 120) && (@arr1.count <= 161)
+      cond1 = @line1[0..39]
+      cond2 = @line2[0..39]
+      cond3 = @line3[0..39]
+      cond4 = @line1[40..79]
+      cond5 = @line2[40..79]
+      cond6 = @line3[40..79]
+      cond7 = @line1[80..119]
+      cond8 = @line2[80..119]
+      cond9 = @line3[80..119]
+      cond10 = @line1[120..160]
+      cond11 = @line2[120..160]
+      cond12 = @line3[120..160]
+
+      File.open(@file_name, mode: "a"){|file| file.puts "#{cond1.join(" ").delete(" ")}\n#{cond2.join(" ").delete(" ")}\n#{cond3.join(" ").delete(" ")}\n#{cond4.join(" ").delete(" ")}\n#{cond5.join(" ").delete(" ")}\n#{cond6.join(" ").delete(" ")}\n#{cond7.join(" ").delete(" ")}\n#{cond8.join(" ").delete(" ")}\n#{cond9.join(" ").delete(" ")}\n#{cond10.join(" ").delete(" ")}\n#{cond11.join(" ").delete(" ")}\n#{cond12.join(" ").delete(" ")}\n"}
     end
   end
 end
