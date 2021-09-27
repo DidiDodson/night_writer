@@ -20,3 +20,4 @@ translate1.write
 
 
 # ./night_writer.rb messages.txt braille.txt
+# rspec -P spec/braille_test.rb,spec/w_translate_spec.rb

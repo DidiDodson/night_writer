@@ -16,3 +16,6 @@ output1.add_file_2
 puts message1.second_message
 translate1.read
 translate1.write
+
+# ./night_reader.rb braille.txt message_output.txt
+# rspec -P spec/braille_test.rb,spec/r_translate_spec.rb
