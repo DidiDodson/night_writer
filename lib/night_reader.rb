@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-require 'optparse'
 require './messages'
 require './output'
 require './reader_dictionary'
@@ -9,10 +8,11 @@ require './r_translate'
 @s_message = ARGV[1]
 
 message1 = Messages.new(@s_message)
-output1 = Output.new(@s_message)
+output1 = Output.new(@f_message, @s_message)
 translate1 = Translate.new(@s_message)
 
+output1.add_file_1
+output1.add_file_2
 puts message1.second_message
-output1.add_file
 translate1.read
 translate1.write
