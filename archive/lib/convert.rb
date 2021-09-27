@@ -1,21 +1,24 @@
-class Convert < WriterDictionary
-  attr_accessor :file_name, :dictionary, :arr1
+class Convert
+  attr_accessor :file_name
 
   def initialize(file_name)
-    super
+    @file_name = file_name
+    @writer_dictionary = WriterDictionary.new(file_name)
+    @arr2 = []
   end
 
   def translate
-    line1 = @arr1.map do |arr|
-      arr[0]
+    @arr2 << @writer_dictionary.read
 
+    line1 = @arr2.map do |arr|
+      arr[0]
     end
 
-    line2 = @arr1.map do |arr|
+    line2 = @arr2.map do |arr|
       arr[1]
     end
 
-    line3 = @arr1.map do |arr|
+    line3 = @arr12.map do |arr|
       arr[2]
     end
 

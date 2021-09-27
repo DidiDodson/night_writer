@@ -44,7 +44,7 @@ class Dictionary
       line3 = @arr1.map do |arr|
         arr[2]
       end
-
+      require "pry"; binding.pry
       if @arr1.count <= 77
         cond1 = line1[0..77]
         cond2 = line2[0..77]
