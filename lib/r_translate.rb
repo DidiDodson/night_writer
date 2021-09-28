@@ -25,68 +25,68 @@ class Translate
     @line2 = line.map do |item|
       item.chars.each_slice(2).map(&:join)
     end
+  end  
 
-    def write
-      @l11 = @line2[0]
-      @l12 = @line2[1]
-      @l13 = @line2[2]
-      @l21 = @line2[3]
-      @l22 = @line2[4]
-      @l23 = @line2[5]
-      @l31 = @line2[6]
-      @l32 = @line2[7]
-      @l33 = @line2[8]
+  def write
+    @l11 = @line2[0]
+    @l12 = @line2[1]
+    @l13 = @line2[2]
+    @l21 = @line2[3]
+    @l22 = @line2[4]
+    @l23 = @line2[5]
+    @l31 = @line2[6]
+    @l32 = @line2[7]
+    @l33 = @line2[8]
 
-      if @line2.include?(@l21) == false
-        zip1 = @l11.zip(@l12, @l13)
+    if @line2.include?(@l21) == false
+      zip1 = @l11.zip(@l12, @l13)
 
-        search1 = zip1.map do |let|
-          search_by_braille(let)
-        end
-
-        new1 = search1.join(" ")
-
-        File.open(@file_name, mode: "a"){|file| file.puts "#{new1}"}
-
-      elsif (@line2.include?(@l21) == true) && (@line2.include?(@l31) == false)
-
-        zip1 = @l11.zip(@l12, @l13)
-        zip2 = @l21.zip(@l22, @l23)
-
-        search1 = zip1.map do |let|
-          search_by_braille(let)
-        end
-        search2 = zip2.map do |let|
-          search_by_braille(let)
-        end
-
-        new1 = search1.join(" ")
-        new2 = search2.join(" ")
-
-        File.open(@file_name, mode: "a"){|file| file.puts "#{new1}\n#{new2}"}
-
-      elsif @line2.include?(@l31) == true
-
-        zip1 = @l11.zip(@l12, @l13)
-        zip2 = @l21.zip(@l22, @l23)
-        zip3 = @l31.zip(@l32, @l33)
-
-        search1 = zip1.map do |let|
-          search_by_braille(let)
-        end
-        search2 = zip2.map do |let|
-          search_by_braille(let)
-        end
-        search3 = zip3.map do |let|
-          search_by_braille(let)
-        end
-
-        new1 = search1.join(" ")
-        new2 = search2.join(" ")
-        new3 = search3.join(" ")
-
-        File.open(@file_name, mode: "a"){|file| file.puts "#{new1}\n#{new2}\n#{new3}"}
+      search1 = zip1.map do |let|
+        search_by_braille(let)
       end
+
+      new1 = search1.join(" ")
+
+      File.open(@file_name, mode: "a"){|file| file.puts "#{new1}"}
+
+    elsif (@line2.include?(@l21) == true) && (@line2.include?(@l31) == false)
+
+      zip1 = @l11.zip(@l12, @l13)
+      zip2 = @l21.zip(@l22, @l23)
+
+      search1 = zip1.map do |let|
+        search_by_braille(let)
+      end
+      search2 = zip2.map do |let|
+        search_by_braille(let)
+      end
+
+      new1 = search1.join(" ")
+      new2 = search2.join(" ")
+
+      File.open(@file_name, mode: "a"){|file| file.puts "#{new1}\n#{new2}"}
+
+    elsif @line2.include?(@l31) == true
+
+      zip1 = @l11.zip(@l12, @l13)
+      zip2 = @l21.zip(@l22, @l23)
+      zip3 = @l31.zip(@l32, @l33)
+
+      search1 = zip1.map do |let|
+        search_by_braille(let)
+      end
+      search2 = zip2.map do |let|
+        search_by_braille(let)
+      end
+      search3 = zip3.map do |let|
+        search_by_braille(let)
+      end
+
+      new1 = search1.join(" ")
+      new2 = search2.join(" ")
+      new3 = search3.join(" ")
+
+      File.open(@file_name, mode: "a"){|file| file.puts "#{new1}\n#{new2}\n#{new3}"}
     end
   end
 end
